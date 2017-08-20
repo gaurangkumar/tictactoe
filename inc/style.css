@@ -1,0 +1,45 @@
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+* Project: Tic Tac Toe (4X4) Game			 *
+* File: style.css											 *
+* Author: GK (gaurangkumarp@gmail.com) *
+* Created: 2017-08-19									 *
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+
+body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana;
+}
+
+#board {
+	margin: auto;
+	width: 216px;
+}
+
+.board_cell {
+	float: left;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	border: 1px solid #000;
+	background-color:#95CCDB;
+	padding:0 !important
+}
+
+.break {
+	clear: both;
+}
+
+#content {
+	margin: auto;
+	padding: 10px;
+	width: 60%;
+}
+
+div.board_cell:hover{
+	background-color:#D78485 !important
+}
+
+.board_cell img{
+	margin: 0 !important;
+	padding:0 !important
+}
