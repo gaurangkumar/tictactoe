@@ -1,8 +1,17 @@
-## Tic Tac Toe Game in PHP and jQuery
+# Tic Tac Toe Game in PHP and jQuery
 
-You can install by command
-git clone http://github.com/gaurangkumar/tictactoe
+*tictactoe is a PHP Game. You can [preview the game to see what it looks like](http://gaurangkumar.github.io/tictactoe)*
 
-### Human Vs Human Game
+![Image](images/Screenshot.png)
 
-[Image](https://github.com/gaurangkumar/tictactoe/blob/master/images/Screenshot.png)
+
+## Usage
+
+To use the Cayman theme:
+1. Download source:
+
+    ```
+    git clone http://github.com/gaurangkumar/tictactoe
+    ```
+# Made By GK
+[On Facebook](https://www.facebook.com/Gaurang-Kumar-216891588644805/)
