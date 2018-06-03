@@ -30,6 +30,15 @@ if(isset($over[0])){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="inc/style.css" />
+  <style>
+	.well-active {
+		background-color:#427BFF
+	}
+	.game-msg {
+		background-color:#FF5454;
+		color:#FFFFFF
+	}
+	</style>
 </head>
 <body>
 <div class="container">
@@ -38,7 +47,7 @@ if(isset($over[0])){
 	</header>
   <div class="row">
   	<div class="col-lg-2">
-			<div class="well well-sm">
+			<div id="p1" class="well well-sm <?=$game['player']=='01'?'well-active':''?>">
         	<i class="fa fa-4x fa-close"> P1</i>
 			</div>
     </div>
@@ -75,7 +84,7 @@ if(isset($over[0])){
         	</div>
         </h4>
         <h4>
-        	<div class="alert alert-success text-center" id="msg">
+        	<div class="alert alert-success text-center game-msg" id="msg">
 						<?php echo $game['msg'];?>
         	</div>
         </h4>
@@ -84,7 +93,7 @@ if(isset($over[0])){
 		</div>
 		</div>
   	<div class="col-lg-2">
-			<div class="well well-sm">
+			<div id="p2" class="well well-sm <?=$game['player']=='01'?'':'well-active'?>">
         	<i class="fa fa-4x fa-circle-o"> P2</i>
 			</div>
     </div>
@@ -119,6 +128,8 @@ $(function(){
 				$('#msg').text("1st Player's Turn");
 				$('#move').text(0);
 				$('#player').val('1st');
+				$('#p1').addClass('well-active');
+				$('#p2').removeClass('well-active');
 			},
 			error: function() {
 			},
@@ -139,11 +150,15 @@ $(function(){
 				$(this).html('<i class="fa fa-4x fa-close"></i>');
 				$('#player').val('2nd');
 				$('#msg').text("2nd Player's Turn");
+				$('#p1').removeClass('well-active');
+				$('#p2').addClass('well-active');
 			}
 			else{
 				$(this).html('<i class="fa fa-4x fa-circle-o"></i>');
 				$('#player').val('1st');
 				$('#msg').text("1st Player's Turn");
+				$('#p1').addClass('well-active');
+				$('#p2').removeClass('well-active');
 			}
 			$('#move').text(move);
 			$.ajax({
@@ -169,14 +184,25 @@ $(function(){
 						data1=data1.replace(c3+"@","");
 						var player=data1.split('@',1);
 						data1=data1.replace(player+"@","");
+						//$('#'+c1).removeClass('btn-danger');
+						//$('#'+c2).removeClass('btn-danger');
+						//$('#'+c3).removeClass('btn-danger');
+						//$('#'+c1).addClass('btn-info');
+						//$('#'+c2).addClass('btn-info');
+						//$('#'+c3).addClass('btn-info');
+						
 						$('#'+c1+',#'+c2+',#'+c3).removeClass('btn-danger');
-						$('#'+c1+',#'+c2+',#'+c3).addClass('btn-info');
+						//$('#'+c1+',#'+c2+',#'+c3).addClass('btn-info');
 						$('.board_cell').addClass('disabled');
 						$('#msg').text(player+' Player Won !');
+						$('#p1').removeClass('well-active');
+						$('#p2').removeClass('well-active');
 					}
 					else if(msg=='tie'){
 						$('.board_cell').addClass('disabled');
 						$("#msg").text('Game Tie !!');
+						$('#p1').removeClass('well-active');
+						$('#p2').removeClass('well-active');
 					}
 				},
 				error: function() {
