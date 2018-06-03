@@ -7,7 +7,7 @@
 
 ## Usage
 
-To use the Cayman theme:
+To play the game:
 1. Download source:
 
     ```
