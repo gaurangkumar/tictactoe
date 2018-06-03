@@ -1,10 +1,9 @@
-## Welcome to GitHub Pages
+## Tic Tac Toe Game in PHP and jQuery
 
-You can use the [editor on GitHub](https://github.com/gaurangkumar/tictactoe/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+You can install by command
+git clone http://github.com/gaurangkumar/tictactoe
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
+### Human Vs Human Game
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
