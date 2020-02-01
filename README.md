@@ -13,5 +13,6 @@ To play the game:
     ```
     git clone http://github.com/gaurangkumar/tictactoe
     ```
-# Made By GK
-[On Facebook](https://www.facebook.com/Gaurang-Kumar-216891588644805/)
+## Authors
+
+- GaurangKumar Parmar  | [GitHub](https://github.com/gaurangkumar)  | [Twitter](https://twitter.com/gaurangkumarp) | [Patreon](https://www.patreon.com/gaurangkumar) | <gaurangkumarp@gmail.com>
