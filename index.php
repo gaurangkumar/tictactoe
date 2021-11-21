@@ -1,20 +1,25 @@
 <?php
 /*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-* Project: Tic Tac Toe Game						 *
-* File: index.php											 *
+* Project: Tic Tac Toe Game			   *
+* File: index.php					   *
 * Author: GK (gaurangkumarp@gmail.com) *
-* Created: 2017-08-19									 *
+* Created: 2017-08-19				   *
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
 session_start();
 include("function.php");
+
 // Variable initiated for new game
 $i='00';
+
 if (!isset($_SESSION['game']['gamedata']))
 	$_SESSION['game'] = ['gamedata'=>[$i,$i,$i,$i,$i,$i,$i,$i,$i], 'player'=>'01', 'move'=>0, 'over'=>false, 'msg'=>"1st Player's Turn"];
+
 $game = $_SESSION['game'];
+
 // Check wheather game is over or not
 $over = isOver($game['gamedata'],$game['move'],$game['player']);
 $game_won = [0,0,0,0,0,0,0,0,0];
+
 if(isset($over[0])){
 	$game_won[str_replace('cell','',$over[0])] = 1;
 	$game_won[str_replace('cell','',$over[1])] = 1;
@@ -25,12 +30,13 @@ if(isset($over[0])){
 <html>
 <head>
 	<title>Tic Tac Toe - Human vs Human</title>
-  <meta name="description" content="Tic Tac Toe Game In PHP  - Human vs Human - 2 Player Game">
-  <meta name="author" content="gaurangkumarp@gmail.com">
+ 	<meta name="description" content="Tic Tac Toe Game In PHP  - Human vs Human - 2 Player Game">
+ 	<meta name="author" content="gaurangkumarp@gmail.com">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+ 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="inc/style.css" />
-  <style>
+
+	<style>
 	.well-active {
 		background-color:#427BFF
 	}
@@ -45,7 +51,8 @@ if(isset($over[0])){
 	<header>
 		<h1 class="page-header text-center">Tic Tac Toe<br><small>Human vs Human</small></h1>
 	</header>
-  <div class="row">
+
+	<div class="row">
   	<div class="col-lg-2">
 			<div id="p1" class="well well-sm <?=$game['player']=='01'?'well-active':''?>">
         	<i class="fa fa-4x fa-close"> P1</i>
@@ -98,7 +105,8 @@ if(isset($over[0])){
 			</div>
     </div>
 	</div>
-  <footer>
+
+	<footer>
   	<hr>
   	<p class="text-center">
 			<b>Made By GK</b>
@@ -107,8 +115,11 @@ if(isset($over[0])){
 		</p>
   </footer>
 </div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script>
 $(function(){
 	// Set New Game
@@ -135,6 +146,7 @@ $(function(){
 			},
 		});
   });
+
 	// Send Board Data To move.php
 	$(".board_cell").click(function(e) {
 		var cell_value=$(this).attr('id');
